@@ -5,10 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "node node_modules/vite/bin/vite.js",
-    "build": "tsc -b && vite build",
+    "build": "node node_modules/typescript/bin/tsc -b && node node_modules/vite/bin/vite.js build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "deploy": "npm run build && npx wrangler pages deploy dist --project-name=todo"
+    "deploy": "node node_modules/typescript/bin/tsc -b && node node_modules/vite/bin/vite.js build && node node_modules/wrangler/bin/wrangler.js pages deploy dist --project-name=todo"
   },
   "dependencies": {
     "lucide-react": "^0.468.0",
@@ -29,6 +29,7 @@
     "tailwindcss": "^3.4.17",
     "typescript": "~5.6.2",
     "typescript-eslint": "^8.18.2",
-    "vite": "^6.0.5"
+    "vite": "^6.0.5",
+    "wrangler": "^4.146.0"
   }
 }
